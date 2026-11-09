@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#050914">
+<title>Caça Robô</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="screen active" id="menu"><div class="panel">
+  <div id="logoBox"></div>
+  <span class="tag">// SISTEMA ONLINE</span>
+  <h1>Caça Robô</h1>
+  <p class="sub">Toque nos robôs da <b>sua cor</b> antes que eles fujam. De 2 a 4 jogadores, em qualquer aparelho.</p>
+  <button class="btn" data-go="onlineMenu">🌐 Modo Online</button>
+  <button class="btn pink" data-go="localMenu">📱 Modo Local</button>
+</div></section>
+
+<section class="screen" id="localMenu"><div class="panel">
+  <h2>Modo Local</h2>
+  <p class="sub">Todos no mesmo aparelho. Cada um escolhe uma cor e toca nos robôs dela.</p>
+  <div class="picks" id="localPick">
+    <button class="pick sel" data-n="2">2</button><button class="pick" data-n="3">3</button><button class="pick" data-n="4">4</button>
+  </div>
+  <div class="legend" id="localLegend"></div>
+  <button class="btn green" id="localStart">Iniciar</button>
+  <button class="btn ghost" data-go="menu">Voltar</button>
+</div></section>
+
+<section class="screen" id="onlineMenu"><div class="panel">
+  <h2>Modo Online</h2>
+  <p class="sub">Celular, tablet ou computador: todos jogam juntos na mesma sala.</p>
+  <input id="nick" maxlength="12" placeholder="SEU APELIDO" autocomplete="off">
+  <button class="btn green" id="createRoom">Criar sala</button>
+  <div class="divider">ou</div>
+  <input id="joinCode" class="code" maxlength="4" placeholder="CÓDIGO" autocomplete="off" autocapitalize="characters">
+  <button class="btn" id="joinRoom">Entrar na sala</button>
+  <div class="msg" id="onMsg"></div>
+  <button class="btn ghost" data-go="menu">Voltar</button>
+</div></section>
+
+<section class="screen" id="lobby"><div class="panel">
+  <h2>Sala</h2>
+  <div class="roomcode" id="roomCode">----</div>
+  <div class="row">
+    <button class="btn ghost" id="copyCode">Copiar código</button>
+    <button class="btn ghost" id="shareLink">Enviar link</button>
+  </div>
+  <div class="plist" id="plist"></div>
+  <div class="msg" id="lobbyMsg"></div>
+  <button class="btn green" id="startOnline">Iniciar jogo</button>
+  <button class="btn ghost" id="leaveRoom">Sair da sala</button>
+</div></section>
+
+<section class="screen" id="game">
+  <div id="board">
+    <div id="timer"><span id="tnum">45</span><div class="bar"><i id="tfill"></i></div></div>
+    <button id="quit" aria-label="Sair">×</button>
+    <div id="count"><div class="who" id="countWho"></div><b id="countNum">3</b></div>
+  </div>
+</section>
+
+<section class="screen" id="result"><div class="panel">
+  <h2 id="resTitle">Fim de jogo</h2>
+  <div class="rank" id="rank"></div>
+  <button class="btn green" id="again">Jogar de novo</button>
+  <button class="btn ghost" id="toMenu">Menu principal</button>
+</div></section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.4/peerjs.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
